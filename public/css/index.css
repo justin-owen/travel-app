@@ -334,6 +334,9 @@ body .wrapper{
     cursor: pointer;
     z-index: 3;
 }
+#log-out{
+    font-size: 12px;
+}
 
 
 
