@@ -1,0 +1,338 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Montserrat:wght@300;400;500;600;700&display=swap');
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Montserrat", sans-serif;
+}
+header h2{
+    font-size: 30px;
+}
+header li, a {
+    font-weight: 500;
+    font-size: 16px;
+    text-decoration: none;
+    color: black;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 2%;
+
+}
+#pages li,.profile li{
+    display:inline-block;
+    padding: 0 10px;
+    cursor: pointer;
+}
+#pages li {
+    margin: 0 80px
+}
+header a{
+    transition: all 0.3s ease 0s;
+    font-size: 20px;
+}
+#login, #register{
+    font-size: 12px;
+}
+header a:hover{
+    color: rgb(81, 197, 235);
+    text-shadow: black 0.5px 0.5px;
+    
+}
+#logo-picture{
+    display: inline-block;
+}
+#site-name{
+    padding: 15px;
+}
+
+#logo{
+    display: flex;
+    flex-direction: row;
+}
+.profile{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 5px;
+}
+
+#register{
+    margin-left: 0;
+}
+footer{
+    width: 100%;
+    height: 50px;
+    background-color: #00ABE4;
+    position:static;
+    bottom: 0px;
+    color: white;
+    display: flex;
+    padding: 20px;
+    justify-content: center;
+    
+    
+}
+footer p{
+    
+    margin-left: 200px;
+    text-align: center;
+    display: flex;
+}
+footer img{
+    height: 20px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+#footer-title{
+    position: absolute;
+    left: 20px;
+    margin-left: 0;
+}
+.container{
+    width:90%;
+    margin: 10px auto;
+    z-index: 1;
+}
+.carousel{
+    border: 2px solid black;
+    height: 600px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+.slider{
+    height: 100%;
+    display: flex;
+    width: 400%;
+    transition: all 0.3s;
+}
+.slider section{
+    flex-basis: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    flex-direction: column;
+    font-size: 40px;
+}
+.controls .arrow{
+    position: absolute;
+    top: 47%;
+    cursor: pointer;
+    font-size: 60px;
+    color: white;
+
+}
+.arrow.left{
+    left: 10px;
+}
+.arrow.right{
+    right: 10px;
+}
+#europe{
+    background-image: url('https://www.routeperfect.com/blog/wp-content/uploads/2018/12/SCENIC2.jpg#svgView(preserveAspectRatio(none))');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#asia{
+    background-image: url('https://img.traveltriangle.com/blog/wp-content/uploads/2020/01/Cover-for-Places-To-Visit-In-September-In-Asia_28th-jan.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#oceania{
+    background-image: url('https://www.planetware.com/photos-large/AUS/australia-beautiful-places-sydney-harbour.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#na{
+    background-image: url('https://media.istockphoto.com/id/1406960186/photo/the-skyline-of-new-york-city-united-states.jpg?s=612x612&w=0&k=20&c=yZJXNdzq3d5bKgvVzPBahBujpbVUXFyjyl9FN9L7esM=');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.slider button{
+    height: 70px;
+    display: block;
+    margin-top: 200px;
+    margin-bottom: 100px;
+    width: 190px;
+    background: none;
+    color: white;
+    border: 3px solid white;
+    font-weight: 700;
+    font-size: 20px;
+    transition: all 0.5s;
+    cursor: pointer;
+    letter-spacing: 0.7px;
+    border-radius: 5px;
+}
+.slider button:hover{
+    background-color: white;
+    color: black;
+}
+.slider h1{
+    display: block;
+}
+.search{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    -ms-flex-align: center;
+    margin-bottom: 10px;
+}
+.search-icon{
+    background-color: #00ABE4;
+    cursor: pointer;
+    color: white;
+    height: 40px;
+    margin: 0;
+    width: 40px;
+    display: inline-block;
+    padding: 5px;
+    box-sizing: inherit;
+    border: black solid 2px;
+    font-size: 14px;
+    font-weight: 400;
+    text-shadow: 1px 1px black;
+}
+#search-bar{
+    height: 40px;
+    border: black solid 1px;
+    width: 230px;
+    padding: 0 10px 0 10px;
+    
+}
+.right-nav{
+    margin-right: 3%;
+}
+body .wrapper{
+    margin: 10px auto;
+    position: absolute;
+    border: 1px black solid;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 440px;
+    overflow: hidden;
+    z-index: 2;
+    /* margin: 0 0 0 37vw; */
+    background-color: white;
+    transform: translate(140%,-20%) scale(0);
+}
+.wrapper.active-popup{
+    transform: scale(1) translate(140%,-20%);
+}
+.wrapper.register{
+    height: 720px;
+    width: 600px;
+    transform: translate(80%,-20%);
+}
+.wrapper.login .form-box.login{
+    transform: translateX(0);
+}
+.wrapper.register .form-box.register{
+    transform: translateX(0);
+}
+.wrapper .form-box.register{
+    position: absolute;
+    transform: translateX(1000px);
+}
+.wrapper .form-box.login{
+    transform: translateX(-1000px);
+}
+.wrapper .form-box{
+    width: 100%;
+    padding: 40px;
+}
+.form-box h2{
+    text-align: center;
+    font-size: 2em;
+}
+.wrapper .input-box{
+    position: relative;
+    width: 100%;
+    height: 60px;
+    border-bottom: solid 1px black;
+    margin: 40px 0;
+}
+.input-box label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    font-weight: 500;
+    pointer-events: none;
+    transition: .5s;
+}
+.input-box input:focus~label,
+.input-box input:valid~label{
+    top:-8px
+}
+.input-box input{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-weight: 600;
+    padding: 0 35px 0 5px;
+}
+.input-box .icon{
+    position: absolute;
+    right: 8px;
+    font-size: 1.2em;
+    line-height: 57px;
+}
+.input-box .login-register{
+    position: absolute;
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+    
+}
+.form-button{
+    height: 40px;
+    width: 120px;
+    background-color: white;
+    color: black;
+    border: black 2px solid;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+.form-button:hover{
+    background-color: black;
+    color: white;
+    
+    
+}
+.login-register a:hover{
+    color: #00ABE4;
+    cursor: pointer;
+}
+.wrapper .icon-close{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45px;
+    height: 45px;
+    background: black;
+    color: white;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    font-size: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 3;
+}
+
+
+
