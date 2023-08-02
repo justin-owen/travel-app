@@ -13,6 +13,13 @@
 {{> home/home-login-register}}
 
     <div>
+        {{#if errors}}
+            {{#each errors}}
+                <div class="alert alert-danger">
+                    {{message}}
+                </div>
+            {{/each}}
+        {{/if}}
         {{{body}}}
     </div>
 
