@@ -12,7 +12,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', (req, res)=>{
     res.render('home/index')
 })
-
+app.get('/regions', (req, res)=>{
+    res.render('home/regions')
+})
+app.get('/countries', (req, res)=>{
+    res.render('home/countries')
+})
 
 app.listen(4000, () => console.log(`server running on 4000`))
 

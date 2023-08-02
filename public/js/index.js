@@ -7,7 +7,11 @@ const wrapper = document.querySelector('.wrapper');
 const loginLink = document.querySelector('.login-link')
 const registerLink = document.querySelector('.register-link')
 const iconclose = document.querySelector('.icon-close')
-
+const siteNameNav = document.querySelector('#site-name')
+//site name navigates to home page
+siteNameNav.addEventListener('click', function(){
+    location.href = "/"
+})
 //carousel of popular regions
 var sectionIndex = 0;
 leftArrow.addEventListener('click', function(){

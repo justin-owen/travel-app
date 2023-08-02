@@ -46,6 +46,7 @@ header a:hover{
 }
 #site-name{
     padding: 15px;
+    cursor: pointer;
 }
 
 #logo{
