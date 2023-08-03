@@ -197,12 +197,16 @@ footer img{
     font-size: 14px;
     font-weight: 400;
     text-shadow: 1px 1px black;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 #search-bar{
     height: 40px;
     border: black solid 1px;
     width: 230px;
     padding: 0 10px 0 10px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
     
 }
 .right-nav{
@@ -222,15 +226,15 @@ body .wrapper{
     z-index: 2;
     /* margin: 0 0 0 37vw; */
     background-color: white;
-    transform: translate(140%,-20%) scale(0);
+    transform: translate(140%,-20%);
 }
 .wrapper.active-popup{
-    transform: scale(1) translate(140%,-20%);
+    transform: translate(140%,-20%);
 }
 .wrapper.register{
-    height: 720px;
+    height: 800px;
     width: 600px;
-    transform: translate(80%,-20%);
+    transform: translate(80%,-10%);
 }
 .wrapper.login .form-box.login{
     transform: translateX(0);
@@ -238,13 +242,8 @@ body .wrapper{
 .wrapper.register .form-box.register{
     transform: translateX(0);
 }
-.wrapper .form-box.register{
-    position: absolute;
-    transform: translateX(1000px);
-}
-.wrapper .form-box.login{
-    transform: translateX(-1000px);
-}
+
+
 .wrapper .form-box{
     width: 100%;
     padding: 40px;
@@ -337,6 +336,31 @@ body .wrapper{
 #log-out{
     font-size: 12px;
 }
-
+.alert{
+    color: red;
+    display: flex;
+    
+    justify-content: center;
+    text-align: center;
+    margin: 5px;
+    background-color: rgb(238, 189, 189);
+    
+}
+.greeting{
+    display: flex;
+    width: 90%;
+    height: 150px;
+    border: 2px solid black;
+    justify-content: center;
+    align-items: center;
+    margin: 0 5% 5% 5%;
+    background-image: url('https://a.storyblok.com/f/51678/2880x1490/7c70a89216/2.jpg/m/2400x0/');
+    background-size: cover;
+    color: white;
+    font-size: 50px;
+    background-repeat: no-repeat;
+    background-position: 0;
+    
+}
 
 

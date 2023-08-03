@@ -3,6 +3,9 @@ const app = express()
 const path = require('path')
 const handlebars = require('express-handlebars')
 const bodyParser = require('body-parser')
+const session = require('express-session');
+const flash = require('connect-flash')
+const passport = require('passport')
 require('dotenv').config()
 const mongoose = require('mongoose')
 
@@ -14,16 +17,58 @@ mongoose.connect(process.env.MONGO_URI, {useNewUrlParser: true, useUnifiedTopolo
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-app.use(express.json())
+app.use(express.json());
+
+app.use(session({
+    secret: 'justinoweniscool',
+    resave: true,
+    saveUninitialized: true,
+    // cookie: { secure: true }
+  }));
+
+app.use(flash());
+
+//passport
+app.use(passport.initialize());
+app.use(passport.session());
+
+
+app.use((req, res, next)=>{
+
+    res.locals.user = req.user;
+    
+    res.locals.success_message = req.flash('success_message');
+
+    res.locals.error_message = req.flash('error_message');
+
+    res.locals.form_errors = req.flash('form_errors');
+
+    res.locals.error = req.flash('error');
+
+    next();
+
+
+});
+
 
 app.set('view engine', 'handlebars');
 app.engine('handlebars', handlebars.engine({defaultLayout: 'home'}));
 app.use(express.static(path.join(__dirname, 'public')));
+
+
 const main = require('./routes/home/main')
+const user = require('./routes/user/user')
+// const regions = require('./routes/user/user')
+// const countries = require('./routes/user/user')
+// const myPosts = require('./routes/user/user')
+// const profile = require('./routes/user/user')
+
+
 
 app.use('/', main)
+app.use('/user', user);
 
-app.post('/')
+
 
 app.listen(4000, () => console.log(`server running on 4000`))
 
