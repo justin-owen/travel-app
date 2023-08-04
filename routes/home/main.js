@@ -1,6 +1,11 @@
 const express = require('express');
 const router = express.Router();
+
 const UserModel = require('../../models/user')
+const Region = require('../../models/region')
+const Country = require('../../models/country')
+const City = require('../../models/city')
+
 const bcrypt = require('bcryptjs')
 const passport = require('passport')
 const LocalStrategy = require('passport-local').Strategy;
@@ -20,10 +25,15 @@ router.get('/', (req, res)=>{
     res.render('home/index')
 });
 router.get('/regions', (req, res)=>{
-    res.render('home/regions')
+    Region.find({}).sort({'name':1}).then((regions)=>{
+        res.render('home/regions', {data: regions})
+    })
+    
 });
 router.get('/countries', (req, res)=>{
-    res.render('home/countries')
+    Country.find({}).sort({'name':1}).then((countries)=>{
+        res.render('home/countries', {data: countries})
+    })
 });
 router.get('/login', (req, res)=>{
     res.render('home/login')
@@ -116,9 +126,6 @@ router.post('/register', (req, res) =>{
     
             errors.push({message: 'please enter a password'});
     
-        }
-        if(!req.body.password.match('/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/')){
-            errors.push({message: 'Password must be between 6 and 20 characters that contains one numeric digit, one uppercase, and one lowercase letter.'})
         }
     
 

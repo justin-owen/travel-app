@@ -72,6 +72,7 @@ footer{
     display: flex;
     padding: 20px;
     justify-content: center;
+    margin-top: 50px;
     
     
 }
@@ -361,6 +362,70 @@ body .wrapper{
     background-repeat: no-repeat;
     background-position: 0;
     
+}
+.regions{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+.regions-list{
+    list-style-type: none;
+}
+#regions-header{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    background-image: url('https://www.bates.edu/wordpress/files/2016/07/gradient6.jpg');
+    background-position: center;
+    height: 90px;
+    align-items: center;
+    background-size: cover;
+    color: white;
+    margin-bottom: 50px;
+}
+.region-name{
+    margin: 20px 0;
+}
+.region-link{
+    color: black;
+    font-size: 25px;
+}
+.region-link:hover{
+    color:#00ABE4;
+
+}
+.countries{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+.countries-list{
+    list-style-type: none;
+}
+#countries-header{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    background-image: url('https://www.bates.edu/wordpress/files/2016/07/gradient6.jpg');
+    background-position: center;
+    height: 90px;
+    align-items: center;
+    background-size: cover;
+    color: white;
+    margin-bottom: 50px;
+}
+.countries-name{
+    margin: 20px 0;
+}
+.countries-link{
+    color: black;
+    font-size: 25px;
+}
+.countries-link:hover{
+    color:#00ABE4;
+
 }
 
 

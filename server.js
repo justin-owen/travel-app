@@ -2,6 +2,9 @@ const express = require('express')
 const app = express()
 const path = require('path')
 const handlebars = require('express-handlebars')
+const handlebrs = require('handlebars')
+const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access')
+const insecureHandlebars = allowInsecurePrototypeAccess(handlebars)
 const bodyParser = require('body-parser')
 const session = require('express-session');
 const flash = require('connect-flash')
@@ -52,7 +55,7 @@ app.use((req, res, next)=>{
 
 
 app.set('view engine', 'handlebars');
-app.engine('handlebars', handlebars.engine({defaultLayout: 'home'}));
+app.engine('handlebars', handlebars.engine({defaultLayout: 'home', handlebars:allowInsecurePrototypeAccess(handlebrs)}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 
