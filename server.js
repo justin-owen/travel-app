@@ -26,7 +26,6 @@ app.use(session({
     secret: 'justinoweniscool',
     resave: true,
     saveUninitialized: true,
-    // cookie: { secure: true }
   }));
 
 app.use(flash());
@@ -61,10 +60,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 const main = require('./routes/home/main')
 const user = require('./routes/user/user')
-// const regions = require('./routes/user/user')
-// const countries = require('./routes/user/user')
-// const myPosts = require('./routes/user/user')
-// const profile = require('./routes/user/user')
+
 
 
 

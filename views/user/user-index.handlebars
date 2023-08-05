@@ -1,28 +1,90 @@
-    
-    <h1 class="greeting">Welcome {{#if user}}{{user.firstName}}{{/if}}!</h1>
+    <div class="greeting">
+        <h1>Welcome {{#if user}}{{user.firstName}}{{/if}}!</h1>
+        <p>This website is made for travelers who want to post about a location in a certain city or are trying to get ideas of places to visit!</p>
+        <p>Enjoy, and keep traveling!</p>
+
+    </div>
     <div class="container">
         <div class="carousel">
             <div class="slider">
-                <section class="popular-regions" id="europe">
-                    <h1>Europe</h1>
-                    <button>Select</button>
+                <section class="popular-regions" id="africa">
+                    <h1>Africa</h1>
+                    <button class="africaBtn">Select</button>
                 </section>
                 <section class="popular-regions" id="asia">
                     <h1>Asia</h1>
-                    <button>Select</button>
+                    <button class="asiaBtn">Select</button>
                 </section>
-                <section class="popular-regions" id="oceania">
-                    <h1>Oceania</h1>
-                    <button>Select</button>
+                <section class="popular-regions" id="ca">
+                    <h1>Central America</h1>
+                    <button class="caBtn">Select</button>
+                </section>
+                <section class="popular-regions" id="europe">
+                    <h1>Europe</h1>
+                    <button class="europeBtn">Select</button>
                 </section>
                 <section class="popular-regions" id="na">
                     <h1>North America</h1>
-                    <button>Select</button>
+                    <button class="naBtn">Select</button>
+                </section>
+                <section class="popular-regions" id="oceania">
+                    <h1>Oceania</h1>
+                    <button class="oceaniaBtn">Select</button>
+                </section>
+                <section class="popular-regions" id="sa">
+                    <h1>South America</h1>
+                    <button class="saBtn">Select</button>
+                </section>
+                <section class="popular-regions" id="caribbean">
+                    <h1>The Caribbean</h1>
+                    <button class="caribbeanBtn">Select</button>
                 </section>
             </div>
             <div class="controls">
                 <span class="material-symbols-outlined arrow left">arrow_back_ios</span>
                 <span class="material-symbols-outlined arrow right">arrow_forward_ios</span>
             </div>
+        </div>
+    </div>
+    <div class="myPosts">
+        <div class="posts">
+            <h1>My Posts</h1>
+            {{#if posts}}
+                {{#each posts}}
+
+                    <div class="post">
+                        <div class="item like"><span class="likeIcon material-symbols-outlined">thumb_up</span></div>
+                        <div class="item likeCount">0</div>
+                        <div class="item dislike"><span class="dislikeIcon material-symbols-outlined">thumb_down</span></div>
+                        <div class="item username">username</div>
+                        <div class="item locationName">location name</div>
+                        <div class="item locationDetails">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo asperiores aut, sapiente enim maxime, obcaecati ipsum quod illum adipisci possimus recusandae fuga. Dolorum molestiae, quod recusandae doloremque necessitatibus qui corrupti. Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores quos animi sunt error aperiam perferendis expedita voluptate fugit, ipsa explicabo culpa quibusdam placeat tempore similique enim reiciendis praesentium voluptas eos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis repellat ipsum incidunt distinctio, earum rem vero veniam eaque dignissimos minima velit quos. Expedita quidem error, neque dicta illo officia? Iure?</div>
+                    </div>
+                {{/each}}
+            {{else}}
+                <p style="margin-bottom: 100px; display: flex; width: 100%; justify-content: center">No Posts to show</p>
+            {{/if}}
+            
+        </div>
+    </div>
+    <div class="recentPosts">
+        <div class="posts">
+            <h1>Recent Posts</h1>
+            {{#if posts}}
+                {{#each posts}}
+
+                    <div class="post">
+                        <div class="item like"><span class="likeIcon material-symbols-outlined">thumb_up</span></div>
+                        <div class="item likeCount">0</div>
+                        <div class="item dislike"><span class="dislikeIcon material-symbols-outlined">thumb_down</span></div>
+                        <div class="item username">username</div>
+                        <div class="item locationName">location name</div>
+                        <div class="item locationDetails">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo asperiores aut, sapiente enim maxime, obcaecati ipsum quod illum adipisci possimus recusandae fuga. Dolorum molestiae, quod recusandae doloremque necessitatibus qui corrupti. Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores quos animi sunt error aperiam perferendis expedita voluptate fugit, ipsa explicabo culpa quibusdam placeat tempore similique enim reiciendis praesentium voluptas eos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis repellat ipsum incidunt distinctio, earum rem vero veniam eaque dignissimos minima velit quos. Expedita quidem error, neque dicta illo officia? Iure?</div>
+                    </div>
+                {{/each}}
+            {{else}}
+                <p style="margin-bottom: 100px; display: flex; width: 100%; justify-content: center">No Posts to show</p>
+            {{/if}}
+
         </div>
     </div>

@@ -1,5 +1,5 @@
 <div class="posts">
-    <h1>My Posts</h1>
+    <h1>{{name}} Posts</h1>
     {{#if posts}}
         {{#each posts}}
 
@@ -13,6 +13,7 @@
             </div>
         {{/each}}
     {{else}}
-        <p style="margin-bottom: 404.5px;">No Posts to show</p>
+        <p style="margin-bottom: 50px;">No Posts to show</p>
+        <p style="margin-bottom: 335px;"><a href="/login" style="color: #00ABE4;">Login</a> to create posts and interact with current posts.</p>
     {{/if}}
 </div>

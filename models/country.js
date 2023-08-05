@@ -6,7 +6,7 @@ const CountrySchema = new mongoose.Schema({
     },
     region: {
         type: String,
-        required: true
+        required: true,
     }
 });
 module.exports = mongoose.model('Country', CountrySchema)

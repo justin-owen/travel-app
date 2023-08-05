@@ -107,7 +107,7 @@ footer img{
 .slider{
     height: 100%;
     display: flex;
-    width: 400%;
+    width: 800%;
     transition: all 0.3s;
 }
 .slider section{
@@ -139,9 +139,10 @@ footer img{
     background-size: cover;
 }
 #asia{
-    background-image: url('https://img.traveltriangle.com/blog/wp-content/uploads/2020/01/Cover-for-Places-To-Visit-In-September-In-Asia_28th-jan.jpg');
+    background-image: url('https://wallpapercave.com/wp/k2gKgSB.jpg');
     background-repeat: no-repeat;
     background-size: cover;
+    background-position:center;
 }
 #oceania{
     background-image: url('https://www.planetware.com/photos-large/AUS/australia-beautiful-places-sydney-harbour.jpg');
@@ -149,9 +150,32 @@ footer img{
     background-size: cover;
 }
 #na{
-    background-image: url('https://media.istockphoto.com/id/1406960186/photo/the-skyline-of-new-york-city-united-states.jpg?s=612x612&w=0&k=20&c=yZJXNdzq3d5bKgvVzPBahBujpbVUXFyjyl9FN9L7esM=');
+    background-image: url('https://images.unsplash.com/photo-1570304816841-906a17d7b067?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bmV3JTIweW9yayUyMHNreWxpbmV8ZW58MHx8MHx8fDA%3D&w=1000&q=80');
     background-repeat: no-repeat;
     background-size: cover;
+}
+#sa{
+    background-image: url('https://i.dailymail.co.uk/1s/2020/03/17/21/23824052-7924523-Perhaps_the_most_irresistible_of_all_South_America_s_waterfalls_-a-23_1584478921505.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#ca{
+    background-image: url('https://www.visitcentroamerica.com/wp-content/uploads/2019/04/post-junio-cuerpo.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+#africa{
+    background-image: url('https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YWZyaWNhbiUyMGxhbmRzY2FwZXxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#caribbean{
+    background-image: url('https://wallpapers.com/images/featured/caribbean-beach-pictures-gvr6v8w4fmuv50xc.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
 }
 .slider button{
     height: 70px;
@@ -349,19 +373,24 @@ body .wrapper{
 }
 .greeting{
     display: flex;
-    width: 90%;
+    width: 100%;
     height: 150px;
     border: 2px solid black;
     justify-content: center;
+    
     align-items: center;
-    margin: 0 5% 5% 5%;
-    background-image: url('https://a.storyblok.com/f/51678/2880x1490/7c70a89216/2.jpg/m/2400x0/');
+    flex-direction: column;
+    margin: 0 0 5% 0%;
+    background-color: #72aee6;
     background-size: cover;
     color: white;
-    font-size: 50px;
+    font-size: 20px;
     background-repeat: no-repeat;
     background-position: 0;
     
+}
+.greeting h1{
+    display: block;
 }
 .regions{
     width: 100%;
@@ -393,7 +422,7 @@ body .wrapper{
 }
 .region-link:hover{
     color:#00ABE4;
-
+    
 }
 .countries{
     width: 100%;
@@ -425,7 +454,109 @@ body .wrapper{
 }
 .countries-link:hover{
     color:#00ABE4;
-
 }
+.cities{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+.cities-list{
+    list-style-type: none;
+}
+#cities-header{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    background-image: url('https://t3.ftcdn.net/jpg/01/51/02/04/360_F_151020455_dqePhb6RrXWiwsZVm5miH7oUGPzu8tHc.jpg');
+    background-position: center;
+    height: 90px;
+    align-items: center;
+    background-size: cover;
+    color: white;
+    margin-bottom: 50px;
+}
+.cities-name{
+    margin: 20px 0;
+}
+.cities-link{
+    color: black;
+    font-size: 25px;
+}
+.cities-link:hover{
+    color:#00ABE4;
+}
+.posts{
+    width: 90%;
+    margin: 0 5% 20px 5%;
 
-
+    
+}
+.posts h1{
+    margin-bottom: 50px;
+}
+.post{
+    display: grid;
+    grid-template-rows: auto 20px auto auto;
+    grid-template-columns: 4% 95%;
+    width: 100%;
+    grid-gap: 10px;
+    margin-bottom: 20px;
+    border: solid 2px black
+    
+}
+.like{
+    grid-row: 1 / 1;
+    grid-column: 1 / 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+.likeCount{
+    grid-row: 2 / 2 ;
+    grid-column: 1 / 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.dislike{
+    grid-row: 3 / 3;
+    grid-column: 1 / 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.username{
+    grid-row:1 / 1;
+    grid-column: 2 / 2;
+    color: grey;
+    margin-top: 10px;
+}
+.locationName{
+    grid-row: 2 / 2;
+    grid-column: 2 / 2;
+}
+.locationDetails{
+    grid-row:3 / 5;
+    grid-column: 2 / 2;
+    margin-bottom: 10px;
+}
+.likeIcon:hover{
+    color: #00ABE4;
+    cursor: pointer;
+}
+.dislikeIcon:hover{
+    color: #00ABE4;
+    cursor: pointer;
+}
+.myPosts h1{
+    display: flex;
+    justify-content: center;
+    margin: 40px 0 40px 0;
+}
+.recentPosts h1{
+    display: flex;
+    justify-content: center;
+    margin: 40px 0 40px 0;
+}

@@ -1,16 +1,18 @@
 const express = require('express');
 const router = express.Router();
-
+// All Models
 const UserModel = require('../../models/user')
 const Region = require('../../models/region')
 const Country = require('../../models/country')
 const City = require('../../models/city')
+const Post = require('../../models/post')
 
+// Authentication and hashing references
 const bcrypt = require('bcryptjs')
 const passport = require('passport')
 const LocalStrategy = require('passport-local').Strategy;
 
-
+// Setting layout for all pages within non logged in user
 router.all('/*', (req, res, next)=>{
 
 
@@ -20,28 +22,62 @@ router.all('/*', (req, res, next)=>{
 
 });
 
-
+// Home page
 router.get('/', (req, res)=>{
     res.render('home/index')
 });
+// Login
+router.get('/login', (req, res)=>{
+    res.render('home/login')
+});
+// Register
+router.get('/register', (req, res)=>{
+    res.render('home/register')
+});
+// Regions page
 router.get('/regions', (req, res)=>{
     Region.find({}).sort({'name':1}).then((regions)=>{
         res.render('home/regions', {data: regions})
     })
     
 });
+// Countries page
 router.get('/countries', (req, res)=>{
     Country.find({}).sort({'name':1}).then((countries)=>{
+        
         res.render('home/countries', {data: countries})
     })
 });
-router.get('/login', (req, res)=>{
-    res.render('home/login')
-})
-router.get('/register', (req, res)=>{
-    res.render('home/register')
-})
+// Countries within a region name
+router.get('/countries/:name', (req, res)=>{
+    var regionName = req.params.name
+    Country.find({'region': regionName}).sort({'name':1}).then((countries)=>{
+        
+        res.render('home/countries', {data: countries})
+    })
+});
+// Cities page
+router.get('/cities', (req, res)=>{
+    City.find({}).sort({'name':1}).then((cities)=>{
+        
+        res.render('home/cities', {data: cities})
+    })
+});
+// Cities within a country name
+router.get('/cities/:name', (req, res)=>{
+    var countryName = req.params.name
+    City.find({'country': countryName}).sort({'name':1}).then((cities)=>{
+        
+        res.render('home/cities', {data: cities})
+    })
+});
 
+router.get('/posts/:name', (req, res)=>{
+    var cityName = req.params.name
+    Post.find({'city': cityName}).then((posts)=>{
+        res.render('home/posts', {posts: posts, name:cityName})
+    })
+});
 
 //app login
 passport.use(new LocalStrategy({usernameField: 'email'}, (email, password, done)=>{
@@ -87,12 +123,14 @@ router.post('/login', (req, res, next)=>{
          })(req, res, next);
 
 });
+// logging out
 router.get('/logout', function(req, res, next){
     req.logout(function(err) {
       if (err) { return next(err); }
       res.redirect('/');
     });
   });
+// App register
 router.post('/register', (req, res) =>{
     try{
         let errors = [];
