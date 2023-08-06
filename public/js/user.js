@@ -57,3 +57,5 @@ rightArrow.addEventListener('click', function(){
     sectionIndex = (sectionIndex < 7) ? sectionIndex + 1 : 0;
     slider.style.transform = 'translate(' + (sectionIndex) * -12.5 + `%)`
 });
+
+

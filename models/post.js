@@ -8,11 +8,11 @@ const PostSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    username:{
+    userName:{
         type: String,
         required: true
     },
-    likes:{
+    likeCount:{
         type: Number,
         default: 0
     },

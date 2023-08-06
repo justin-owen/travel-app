@@ -7,7 +7,7 @@ const City = require('../../models/city')
 const Post = require('../../models/post')
 
 const {userAuthenticated} = require('../../helpers/authentication');
-const region = require('../../models/region');
+
 
 
 
@@ -20,8 +20,8 @@ router.all('/*', userAuthenticated, (req, res, next)=>{
 
 });
 router.get('/', (req, res)=>{
-    Post.find({}).sort({createdAt: 1}).limit(10).then((recentPosts)=>{
-        Post.find({'username':req.user.userName}).limit(10).then((myposts)=>{
+    Post.find({}).sort({createdAt: -1}).limit(10).then((recentPosts)=>{
+        Post.find({'userName':req.user.userName}).sort({createdAt: -1}).limit(10).then((myposts)=>{
             res.render('user/user-index', {myposts:myposts, recentPosts:recentPosts})
         })
     })
@@ -60,7 +60,11 @@ router.get('/cities/:name', (req, res)=>{
         res.render('user/user-cities', {data: cities})
     })
 });
-
+router.get('/posts/create', (req, res)=>{
+    City.find({}).sort({'name': 1}).then((cities)=>{
+        res.render('user/user-create-post', {cities: cities})
+    })
+})
 router.get('/posts/:name', (req, res)=>{
     var cityName = req.params.name
     Post.find({'city': cityName}).then((posts)=>{
@@ -68,8 +72,33 @@ router.get('/posts/:name', (req, res)=>{
     })
 });
 
+router.post('/posts/create', (req, res)=>{
+    const newPost = new Post({
+        city: req.body.city,
+        locationName: req.body.locationName,
+        userName: req.body.userName,
+        locationDetails: req.body.locationDetails
+    });
+    newPost.save()
+    res.send('created post')
+});
+router.post('/posts/create/:name', (req, res)=>{
+    const newPost = new Post({
+        city: req.body.city,
+        locationName: req.body.locationName,
+        userName: req.body.userName,
+        locationDetails: req.body.locationDetails
+    });
+    newPost.save()
+    res.send('created post')
+});
+router.get('/posts/create/:name', (req, res)=>{
+    var cityName = req.params.name
+    res.render('user/user-create-post', {name: cityName})
+});
+
 router.get('/myposts', (req, res)=>{
-    Post.find({'username':req.user.userName}).sort({createdAt:1}).then((posts)=>{
+    Post.find({'userName':res.locals.user.userName}).sort({createdAt: -1}).then((posts)=>{
         res.render('user/user-myposts', {posts: posts})
     })
 });

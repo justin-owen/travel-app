@@ -49,16 +49,16 @@
     <div class="myPosts">
         <div class="posts">
             <h1>My Posts</h1>
-            {{#if posts}}
-                {{#each posts}}
+            {{#if myposts}}
+                {{#each myposts}}
 
                     <div class="post">
                         <div class="item like"><span class="likeIcon material-symbols-outlined">thumb_up</span></div>
-                        <div class="item likeCount">0</div>
+                        <div class="item likeCount">{{likeCount}}</div>
                         <div class="item dislike"><span class="dislikeIcon material-symbols-outlined">thumb_down</span></div>
-                        <div class="item username">username</div>
-                        <div class="item locationName">location name</div>
-                        <div class="item locationDetails">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo asperiores aut, sapiente enim maxime, obcaecati ipsum quod illum adipisci possimus recusandae fuga. Dolorum molestiae, quod recusandae doloremque necessitatibus qui corrupti. Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores quos animi sunt error aperiam perferendis expedita voluptate fugit, ipsa explicabo culpa quibusdam placeat tempore similique enim reiciendis praesentium voluptas eos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis repellat ipsum incidunt distinctio, earum rem vero veniam eaque dignissimos minima velit quos. Expedita quidem error, neque dicta illo officia? Iure?</div>
+                        <div class="item username">{{userName}}</div>
+                        <div class="item locationName">{{locationName}}, {{city}}</div>
+                        <div class="item locationDetails">{{locationDetails}}</div>
                     </div>
                 {{/each}}
             {{else}}
@@ -70,16 +70,16 @@
     <div class="recentPosts">
         <div class="posts">
             <h1>Recent Posts</h1>
-            {{#if posts}}
-                {{#each posts}}
+            {{#if recentPosts}}
+                {{#each recentPosts}}
 
                     <div class="post">
                         <div class="item like"><span class="likeIcon material-symbols-outlined">thumb_up</span></div>
-                        <div class="item likeCount">0</div>
+                        <div class="item likeCount">{{likeCount}}</div>
                         <div class="item dislike"><span class="dislikeIcon material-symbols-outlined">thumb_down</span></div>
-                        <div class="item username">username</div>
-                        <div class="item locationName">location name</div>
-                        <div class="item locationDetails">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo asperiores aut, sapiente enim maxime, obcaecati ipsum quod illum adipisci possimus recusandae fuga. Dolorum molestiae, quod recusandae doloremque necessitatibus qui corrupti. Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores quos animi sunt error aperiam perferendis expedita voluptate fugit, ipsa explicabo culpa quibusdam placeat tempore similique enim reiciendis praesentium voluptas eos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis repellat ipsum incidunt distinctio, earum rem vero veniam eaque dignissimos minima velit quos. Expedita quidem error, neque dicta illo officia? Iure?</div>
+                        <div class="item username">Created by {{userName}}</div>
+                        <div class="item locationName">{{locationName}}, {{city}}</div>
+                        <div class="item locationDetails">{{locationDetails}}</div>
                     </div>
                 {{/each}}
             {{else}}

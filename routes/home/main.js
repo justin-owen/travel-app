@@ -24,7 +24,9 @@ router.all('/*', (req, res, next)=>{
 
 // Home page
 router.get('/', (req, res)=>{
-    res.render('home/index')
+    Post.find({}).sort({createdAt: -1}).limit(10).then((recentPosts)=>{
+        res.render('home/index', {recentPosts:recentPosts})
+    });  
 });
 // Login
 router.get('/login', (req, res)=>{
@@ -86,7 +88,7 @@ passport.use(new LocalStrategy({usernameField: 'email'}, (email, password, done)
         bcrypt.compare(password, user.password, (err, matched)=>{
             if (err) return err;
             if(matched) {
-                console.log(user)
+
                 return done(null, user);
             }else{
                 return done(null, false, {message: 'Incorrect password'})
