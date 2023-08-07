@@ -11,6 +11,7 @@ const flash = require('connect-flash')
 const passport = require('passport')
 require('dotenv').config()
 const mongoose = require('mongoose')
+const methodOverride = require('method-override')
 
 
 mongoose.connect(process.env.MONGO_URI, {useNewUrlParser: true, useUnifiedTopology: true, family: 4}).then((db)=>{
@@ -21,6 +22,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.use(express.json());
+app.use(express.urlencoded({extended: true}));
+
+app.use(methodOverride('_method'))
+
 
 app.use(session({
     secret: 'justinoweniscool',

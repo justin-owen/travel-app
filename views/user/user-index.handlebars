@@ -53,10 +53,10 @@
                 {{#each myposts}}
 
                     <div class="post">
-                        <div class="item like"><span class="likeIcon material-symbols-outlined">thumb_up</span></div>
-                        <div class="item likeCount">{{likeCount}}</div>
-                        <div class="item dislike"><span class="dislikeIcon material-symbols-outlined">thumb_down</span></div>
-                        <div class="item username">{{userName}}</div>
+                        <div class="item like"><span class="likeIcon material-symbols-outlined" onclick="like('{{_id}}', '{{city}}')">thumb_up</span></div>
+                        <div class="item likeCount" id="{{_id}}">{{likeCount}}</div>
+                        <div class="item dislike"><span class="dislikeIcon material-symbols-outlined" onclick="dislike('{{_id}}', '{{city}}')">thumb_down</span></div>
+                        <div class="item username">Created by {{userName}}</div>
                         <div class="item locationName">{{locationName}}, {{city}}</div>
                         <div class="item locationDetails">{{locationDetails}}</div>
                     </div>
@@ -74,9 +74,9 @@
                 {{#each recentPosts}}
 
                     <div class="post">
-                        <div class="item like"><span class="likeIcon material-symbols-outlined">thumb_up</span></div>
-                        <div class="item likeCount">{{likeCount}}</div>
-                        <div class="item dislike"><span class="dislikeIcon material-symbols-outlined">thumb_down</span></div>
+                        <div class="item like"><span class="likeIcon material-symbols-outlined" onclick="like('{{_id}}', '{{city}}')">thumb_up</span></div>
+                        <div class="item likeCount" id="{{_id}}">{{likeCount}}</div>
+                        <div class="item dislike"><span class="dislikeIcon material-symbols-outlined" onclick="dislike('{{_id}}', '{{city}}')">thumb_down</span></div>
                         <div class="item username">Created by {{userName}}</div>
                         <div class="item locationName">{{locationName}}, {{city}}</div>
                         <div class="item locationDetails">{{locationDetails}}</div>
@@ -88,3 +88,22 @@
 
         </div>
     </div>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script type="text/javascript">
+    
+
+    function like(id, city){
+        let likeCount = document.getElementById(`${id}`)
+        axios.put(`/user/posts/${id}/like`, {id, increment: 1, city}).then( function(response) {
+            const updatedPost = response.data
+            likeCount.textContent = updatedPost.likeCount
+        })
+    }
+    function dislike(id, city){
+        let likeCount = document.getElementById(`${id}`)
+        axios.put(`/user/posts/${id}/dislike`, {id, increment: -1, city}).then(function(response){
+            const updatedPost = response.data
+            likeCount.textContent = updatedPost.likeCount
+        })
+    }
+</script>

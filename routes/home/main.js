@@ -36,6 +36,13 @@ router.get('/login', (req, res)=>{
 router.get('/register', (req, res)=>{
     res.render('home/register')
 });
+router.get('/search', (req, res)=>{
+    const searchTerm = req.query.term
+    City.find({name:{$regex: searchTerm}}).sort({'name': 1}).then(cities=>{
+        res.render('home/cities', {data: cities})
+    })
+
+});
 // Regions page
 router.get('/regions', (req, res)=>{
     Region.find({}).sort({'name':1}).then((regions)=>{

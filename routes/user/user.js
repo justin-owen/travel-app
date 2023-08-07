@@ -26,6 +26,13 @@ router.get('/', (req, res)=>{
         })
     })
 });
+router.get('/search', (req, res)=>{
+    const searchTerm = req.query.term
+    City.find({name:{$regex: searchTerm}}).sort({'name': 1}).then(cities=>{
+        res.render('home/cities', {data: cities})
+    })
+
+});
 router.get('/countries', (req, res)=>{
     Country.find({}).sort({'name':1}).then((countries)=>{
         res.render('user/user-countries', {data: countries})
@@ -71,6 +78,33 @@ router.get('/posts/:name', (req, res)=>{
         res.render('user/user-posts', {posts: posts, name:cityName})
     })
 });
+router.put('/posts/:id/like', (req, res)=>{
+    var cityName = req.body.city
+    var increment = req.body.increment
+    var id = req.body.id
+
+    Post.findOne({'_id': id}).then(post=>{
+        post.likeCount = post.likeCount + increment
+        post.save().then(updatedPost=>{
+            res.json(updatedPost)
+        })
+    })
+    
+});
+
+router.put('/posts/:id/dislike', (req, res)=>{
+    var cityName = req.body.city
+    var increment = req.body.increment
+    var id = req.body.id
+
+    Post.findOne({'_id': id}).then(post=>{
+        post.likeCount = post.likeCount + increment
+        post.save().then(updatedPost=>{
+            res.json(updatedPost)
+        })
+    })
+});
+
 
 router.post('/posts/create', (req, res)=>{
     const newPost = new Post({
@@ -79,18 +113,23 @@ router.post('/posts/create', (req, res)=>{
         userName: req.body.userName,
         locationDetails: req.body.locationDetails
     });
-    newPost.save()
-    res.send('created post')
+    newPost.save().then(newPost=>{
+        res.redirect('/user/myposts')
+    })
+
 });
 router.post('/posts/create/:name', (req, res)=>{
+    const city = req.params.name
     const newPost = new Post({
         city: req.body.city,
         locationName: req.body.locationName,
         userName: req.body.userName,
         locationDetails: req.body.locationDetails
     });
-    newPost.save()
-    res.send('created post')
+    newPost.save().then(newPost=>{
+        res.redirect(`/user/posts/${city}`)
+    })
+
 });
 router.get('/posts/create/:name', (req, res)=>{
     var cityName = req.params.name
@@ -101,6 +140,28 @@ router.get('/myposts', (req, res)=>{
     Post.find({'userName':res.locals.user.userName}).sort({createdAt: -1}).then((posts)=>{
         res.render('user/user-myposts', {posts: posts})
     })
+});
+router.get('/posts/edit/:id', (req, res)=>{
+    Post.find({'_id':req.params.id}).then((post)=>{
+        City.find({}).sort({'name': 1}).then((cities)=>{
+            res.render('user/user-edit-post', {post: post, cities:cities})
+
+        })
+    })
+});
+router.put('/posts/edit/:id', (req, res)=>{
+   Post.findOne({'_id': req.params.id}).then(post=>{
+        post.locationName = req.body.locationName,
+        post.locationDetails = req.body.locationDetails
+        post.save().then(updatedPost=>{
+            res.redirect('/user/myposts')
+        })
+   })
+});
+router.delete('/myposts/:id', (req, res)=>{
+   Post.deleteOne({'_id': req.params.id}).then(result=>{
+        res.redirect('/user/myposts')
+   })
 });
 
 module.exports = router;

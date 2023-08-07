@@ -542,6 +542,31 @@ body .wrapper{
     grid-column: 2 / 2;
     margin-bottom: 10px;
 }
+.deletePost{
+    grid-row: 1 / 1;
+    grid-column: 2 / 2;
+    position: relative;
+    transform: translateX(92.5%);
+    margin-top: 10px;
+}
+.editPost{
+    grid-row: 1 / 1;
+    grid-column: 2 / 2;
+    position: relative;
+    transform: translateX(85.5%);
+    margin-top: 10px;
+    font-size: 15px;
+    font-weight: 500;
+}
+.deleteBtn{
+    border: none;
+    color: red;
+    background: transparent;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 15px;
+
+}
 .likeIcon:hover{
     color: #00ABE4;
     cursor: pointer;

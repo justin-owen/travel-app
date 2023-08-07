@@ -1,0 +1,10 @@
+{{#each post}}
+<div class="createPostForm">
+    <h1 class="formLabel">Edit Post</h1>
+    <form action="/user/posts/edit/{{_id}}?_method=PUT" method="post" class="form">
+        <label for="locationName" class="locationNameLabel">Location Name: </label><input type="text" name="locationName" placeholder="Enter location name..." style="padding-left: 10px; padding-right: 5px" class="locationNameInput" value="{{locationName}}">
+        <label for="locationDetails" class="locationDetailsLabel">Location Details: </label><textarea name="locationDetails" id="locationDetails" cols="60" rows="20" class="locationDetailsInput" placeholder="Enter the location Details...">{{locationDetails}}</textarea>
+        <button type="submit" class="submitBtn">Submit</button>
+    </form>
+</div>
+{{/each}}

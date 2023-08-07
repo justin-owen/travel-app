@@ -18,9 +18,9 @@
                 
             </div>
             <div class="search">
-                <form action="" class="search">
-                    <input type="text" id="search-bar" placeholder="Search cities...">
-                    <span class="material-symbols-outlined search-icon">search</span>
+                <form action="/user/search" class="search" method="get">
+                    <input type="text" id="search-bar" placeholder="Search cities..." name="term" required>
+                    <button type="submit" style="background: transparent; border:none"><span class="material-symbols-outlined search-icon">search</span></button>
                 </form>
             </div>
         </div>
