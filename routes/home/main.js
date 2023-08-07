@@ -30,7 +30,7 @@ router.get('/', (req, res)=>{
 });
 // Login
 router.get('/login', (req, res)=>{
-    res.render('home/login')
+    res.render('home/login', {messages: req.flash('error')})
 });
 // Register
 router.get('/register', (req, res)=>{
@@ -89,15 +89,20 @@ router.get('/posts/:name', (req, res)=>{
 });
 
 //app login
-passport.use(new LocalStrategy({usernameField: 'email'}, (email, password, done)=>{
+passport.use(new LocalStrategy({usernameField: 'email', passwordField: 'password', passReqToCallback:true}, (req, email, password, done)=>{
     UserModel.findOne({email: email}).then(user=>{
-        if(!user) return done(null, false, {message: "No user Found"})
+        if(!user) {
+            req.flash('error', 'Invalid email')
+            console.log(req.flash('error'))
+            return done(null, false, {message: "No user Found"})
+        }
         bcrypt.compare(password, user.password, (err, matched)=>{
             if (err) return err;
             if(matched) {
 
                 return done(null, user);
             }else{
+                req.flash('error', 'Invalid Password')
                 return done(null, false, {message: 'Incorrect password'})
             }
         });
@@ -123,13 +128,14 @@ passport.serializeUser(function(user, cb) {
     });
   });
 
-router.post('/login', (req, res, next)=>{
+router.post('/login',(req, res, next)=>{
 
-        passport.authenticate('local', {
-            successRedirect:'/user',
-            failureRedirect: '/login',
-            failureFlash:true
-         })(req, res, next);
+    passport.authenticate('local', {
+        successRedirect:'/user',
+        failureRedirect: '/login',
+        failureFlash:true,
+        failureMessage: {message: 'Incorrect Email or Password'}
+     })(req, res, next);
 
 });
 // logging out

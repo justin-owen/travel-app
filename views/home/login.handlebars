@@ -2,12 +2,13 @@
     <span class="icon-close material-symbols-outlined">close</span>
     <div class="form-box login">
         <h2>Login</h2>
-        {{#if errors}}
-            {{#each errors}}
-                <div class="alert">
-                    {{message}}
-                </div>
-            {{/each}}
+        
+        {{#if message}}
+            <div class="alert alert-danger">
+
+                <p>{{message}}</p>
+
+            </div>
         {{/if}}
 
         <form action="/login" method="post">
