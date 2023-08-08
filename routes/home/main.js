@@ -92,9 +92,7 @@ router.get('/posts/:name', (req, res)=>{
 passport.use(new LocalStrategy({usernameField: 'email', passwordField: 'password', passReqToCallback:true}, (req, email, password, done)=>{
     UserModel.findOne({email: email}).then(user=>{
         if(!user) {
-            req.flash('error', 'Invalid email')
-            console.log(req.flash('error'))
-            return done(null, false, {message: "No user Found"})
+            return done(null, false, {message: "Not a valid email"})
         }
         bcrypt.compare(password, user.password, (err, matched)=>{
             if (err) return err;
@@ -130,12 +128,27 @@ passport.serializeUser(function(user, cb) {
 
 router.post('/login',(req, res, next)=>{
 
-    passport.authenticate('local', {
-        successRedirect:'/user',
-        failureRedirect: '/login',
-        failureFlash:true,
-        failureMessage: {message: 'Incorrect Email or Password'}
-     })(req, res, next);
+    // passport.authenticate('local', {
+    //     successRedirect:'/user',
+    //     failureRedirect:'/login',
+    //     failureFlash:true,
+    //     failureMessage: {message: 'Incorrect Email or Password'}
+    //  })(req, res, next);
+    passport.authenticate('local', (err, user, options)=>{
+        if (user){
+            req.login(user, (error)=>{
+                if (error) {
+                    res.send(error)
+                }else{
+                    res.redirect('/user')
+                }
+            })
+        }else{
+            res.render('home/login', {message: options.message})
+        }
+    })(req, res, next);
+
+    
 
 });
 // logging out
@@ -198,24 +211,32 @@ router.post('/register', (req, res) =>{
 
             UserModel.findOne({email: req.body.email}).then(user=>{
                 if(!user){
-
-                    bcrypt.genSalt(10, (err, salt)=>{
-                        bcrypt.hash(req.body.password, salt, (err, hash)=>{
-                            const newUser = new UserModel({
-                                firstName: req.body.firstName,
-                                lastName: req.body.lastName,
-                                userName: req.body.userName,
-                                email: req.body.email,
-                                password: hash,
-                            });
-                            newUser.save()
-                        })
+                    UserModel.findOne({userName: req.body.userName}).then(User=>{
+                        if(!User){
+                            bcrypt.genSalt(10, (err, salt)=>{
+                                bcrypt.hash(req.body.password, salt, (err, hash)=>{
+                                    const newUser = new UserModel({
+                                        firstName: req.body.firstName,
+                                        lastName: req.body.lastName,
+                                        userName: req.body.userName,
+                                        email: req.body.email,
+                                        password: hash,
+                                    });
+                                    newUser.save()
+                                })
+                            })
+                            res.redirect('/login')
+                        }else{
+                            errors.push({message: 'Username already in use!'})
+                             return res.render('home/register', {
+                                errors: errors
+                            })
+                        }
                     })
-                    res.redirect('/login')
 
                 }else{
                     errors.push({message: 'Email already in use!'});
-                    res.render('home/register', {
+                     return res.render('home/register', {
                         errors: errors
                     })
                 }
