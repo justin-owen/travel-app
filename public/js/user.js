@@ -14,7 +14,15 @@ const centralAmerica = document.querySelector('.caBtn')
 const caribbean = document.querySelector('.caribbeanBtn')
 const africa = document.querySelector('.africaBtn')
 
+const linkedIn = document.getElementById('linked-in')
+const gitHub = document.getElementById('git-hub')
 
+linkedIn.addEventListener('click', function(){
+    window.open('https://www.linkedin.com/in/justin-owen1/')
+})
+gitHub.addEventListener('click', function(){
+    window.open('https://github.com/justin-owen')
+})
 
 siteNameNavUser.addEventListener('click',function(){
     location.href = '/user'
