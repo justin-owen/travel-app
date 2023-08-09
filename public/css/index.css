@@ -7,11 +7,8 @@
 }
 .body{
     min-height: 463px;
-    display: relative;
-
-
-    
 }
+
 header h2{
     font-size: 30px;
 }
@@ -154,6 +151,7 @@ footer img{
     background-image: url('https://www.planetware.com/photos-large/AUS/australia-beautiful-places-sydney-harbour.jpg');
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
 }
 #na{
     background-image: url('https://images.unsplash.com/photo-1570304816841-906a17d7b067?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bmV3JTIweW9yayUyMHNreWxpbmV8ZW58MHx8MHx8fDA%3D&w=1000&q=80');
