@@ -1,0 +1,697 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Montserrat:wght@300;400;500;600;700&display=swap');
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Montserrat", sans-serif;
+}
+.body{
+    min-height: 463px;
+}
+
+header h2{
+    font-size: 30px;
+}
+header li, a {
+    font-weight: 500;
+    font-size: 16px;
+    text-decoration: none;
+    color: black;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 2%;
+
+}
+#pages li,.profile li{
+    display:inline-block;
+    padding: 0 10px;
+    cursor: pointer;
+}
+#pages li {
+    margin: 0 80px
+}
+header a{
+    transition: all 0.3s ease 0s;
+    font-size: 20px;
+}
+#login, #register{
+    font-size: 12px;
+}
+header a:hover{
+    color: rgb(81, 197, 235);
+    text-shadow: black 0.5px 0.5px;
+    
+}
+#logo-picture{
+    display: inline-block;
+}
+#site-name{
+    padding: 15px;
+    cursor: pointer;
+}
+
+#logo{
+    display: flex;
+    flex-direction: row;
+}
+.profile{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 5px;
+}
+
+#register{
+    margin-left: 0;
+}
+footer{
+    width: 100%;
+    height: 50px;
+    background-color: #00ABE4;
+    position: static;
+    bottom: 0px;
+    color: white;
+    display: flex;
+    padding: 20px;
+    justify-content: center;
+    margin-top: 50px;
+    
+    
+}
+footer p{
+    
+    margin-left: 200px;
+    text-align: center;
+    display: flex;
+}
+footer img{
+    height: 20px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+#footer-title{
+    position: absolute;
+    left: 20px;
+    margin-left: 0;
+}
+.container{
+    width:100%;
+    margin: 0 0;
+    z-index: 1;
+}
+.carousel{
+    height: 700px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+.slider{
+    height: 100%;
+    display: flex;
+    width: 800%;
+    transition: all 0.3s;
+}
+.slider section{
+    flex-basis: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    flex-direction: column;
+    font-size: 40px;
+}
+.controls .arrow{
+    position: absolute;
+    top: 47%;
+    cursor: pointer;
+    font-size: 60px;
+    color: white;
+
+}
+.arrow.left{
+    left: 10px;
+}
+.arrow.right{
+    right: 10px;
+}
+#europe{
+    background-image: url('https://www.routeperfect.com/blog/wp-content/uploads/2018/12/SCENIC2.jpg#svgView(preserveAspectRatio(none))');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#asia{
+    background-image: url('https://wallpapercave.com/wp/k2gKgSB.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position:center;
+}
+#oceania{
+    background-image: url('https://www.planetware.com/photos-large/AUS/australia-beautiful-places-sydney-harbour.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+#na{
+    background-image: url('https://images.unsplash.com/photo-1570304816841-906a17d7b067?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bmV3JTIweW9yayUyMHNreWxpbmV8ZW58MHx8MHx8fDA%3D&w=1000&q=80');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#sa{
+    background-image: url('https://i.dailymail.co.uk/1s/2020/03/17/21/23824052-7924523-Perhaps_the_most_irresistible_of_all_South_America_s_waterfalls_-a-23_1584478921505.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#ca{
+    background-image: url('https://www.visitcentroamerica.com/wp-content/uploads/2019/04/post-junio-cuerpo.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+#africa{
+    background-image: url('https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YWZyaWNhbiUyMGxhbmRzY2FwZXxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#caribbean{
+    background-image: url('https://wallpapers.com/images/featured/caribbean-beach-pictures-gvr6v8w4fmuv50xc.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+}
+.slider button{
+    height: 70px;
+    display: block;
+    margin-top: 200px;
+    margin-bottom: 100px;
+    width: 190px;
+    background: none;
+    color: white;
+    border: 3px solid white;
+    font-weight: 700;
+    font-size: 20px;
+    transition: all 0.5s;
+    cursor: pointer;
+    letter-spacing: 0.7px;
+    border-radius: 5px;
+}
+.slider button:hover{
+    background-color: white;
+    color: black;
+}
+.slider h1{
+    display: block;
+}
+.search{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    -ms-flex-align: center;
+    margin-bottom: 10px;
+}
+.search-icon{
+    background-color: #00ABE4;
+    cursor: pointer;
+    color: white;
+    height: 40px;
+    margin: 0;
+    width: 40px;
+    display: inline-block;
+    padding: 5px;
+    box-sizing: inherit;
+    border: black solid 2px;
+    font-size: 14px;
+    font-weight: 400;
+    text-shadow: 1px 1px black;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+#search-bar{
+    height: 40px;
+    border: black solid 1px;
+    width: 230px;
+    padding: 0 10px 0 10px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    
+}
+.right-nav{
+    margin-right: 3%;
+}
+body .wrapper{
+    margin: 10px auto;
+    position: absolute;
+    border: 1px black solid;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 440px;
+    overflow: hidden;
+    z-index: 2;
+    /* margin: 0 0 0 37vw; */
+    background-color: white;
+    transform: translate(140%,-20%);
+}
+.wrapper.active-popup{
+    transform: translate(140%,-20%);
+}
+.wrapper.register{
+    height: 800px;
+    width: 600px;
+    transform: translate(80%,-10%);
+}
+.wrapper.login .form-box.login{
+    transform: translateX(0);
+}
+.wrapper.register .form-box.register{
+    transform: translateX(0);
+}
+
+
+.wrapper .form-box{
+    width: 100%;
+    padding: 40px;
+}
+.form-box h2{
+    text-align: center;
+    font-size: 2em;
+}
+.wrapper .input-box{
+    position: relative;
+    width: 100%;
+    height: 60px;
+    border-bottom: solid 1px black;
+    margin: 40px 0;
+}
+.input-box label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    font-weight: 500;
+    pointer-events: none;
+    transition: .5s;
+}
+.input-box input:focus~label,
+.input-box input:valid~label{
+    top:-8px
+}
+.input-box input{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-weight: 600;
+    padding: 0 35px 0 5px;
+}
+.input-box .icon{
+    position: absolute;
+    right: 8px;
+    font-size: 1.2em;
+    line-height: 57px;
+}
+.input-box .login-register{
+    position: absolute;
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+    
+}
+.form-button{
+    height: 40px;
+    width: 120px;
+    background-color: white;
+    color: black;
+    border: black 2px solid;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+.form-button:hover{
+    background-color: black;
+    color: white;
+    
+    
+}
+.login-register a:hover{
+    color: #00ABE4;
+    cursor: pointer;
+}
+.wrapper .icon-close{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45px;
+    height: 45px;
+    background: black;
+    color: white;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    font-size: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 3;
+}
+#log-out{
+    font-size: 12px;
+}
+.alert{
+    color: red;
+    display: flex;
+    
+    justify-content: center;
+    text-align: center;
+    margin: 5px;
+    background-color: rgb(238, 189, 189);
+    
+}
+.greeting{
+    display: flex;
+    width: 100%;
+    height: 150px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 0 0 0%;
+    background-color: #72aee6;
+    background-size: cover;
+    color: white;
+    font-size: 20px;
+    background-repeat: no-repeat;
+    background-position: 0;
+    
+}
+.greeting h1{
+    display: block;
+}
+.regions{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+.regions-list{
+    list-style-type: none;
+}
+#regions-header{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    background-image: url('https://www.bates.edu/wordpress/files/2016/07/gradient6.jpg');
+    background-position: center;
+    height: 90px;
+    align-items: center;
+    background-size: cover;
+    color: white;
+    margin-bottom: 50px;
+}
+.region-name{
+    margin: 20px 0;
+}
+.region-link{
+    color: black;
+    font-size: 25px;
+}
+.region-link:hover{
+    color:#00ABE4;
+    
+}
+.countries{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+.countries-list{
+    list-style-type: none;
+}
+#countries-header{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    background-image: url('https://www.bates.edu/wordpress/files/2016/07/gradient6.jpg');
+    background-position: center;
+    height: 90px;
+    align-items: center;
+    background-size: cover;
+    color: white;
+    margin-bottom: 50px;
+}
+.countries-name{
+    margin: 20px 0;
+}
+.countries-link{
+    color: black;
+    font-size: 25px;
+}
+.countries-link:hover{
+    color:#00ABE4;
+}
+.cities{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+.cities-list{
+    list-style-type: none;
+}
+#cities-header{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    background-image: url('https://t3.ftcdn.net/jpg/01/51/02/04/360_F_151020455_dqePhb6RrXWiwsZVm5miH7oUGPzu8tHc.jpg');
+    background-position: center;
+    height: 90px;
+    align-items: center;
+    background-size: cover;
+    color: white;
+    margin-bottom: 50px;
+}
+.cities-name{
+    margin: 20px 0;
+}
+.cities-link{
+    color: black;
+    font-size: 25px;
+}
+.cities-link:hover{
+    color:#00ABE4;
+}
+.posts{
+    width: 90%;
+    margin: 0 5% 20px 5%;
+
+    
+}
+.posts h1{
+    margin-bottom: 50px;
+}
+.post{
+    display: grid;
+    grid-template-rows: auto 20px auto auto;
+    grid-template-columns: 4% 95%;
+    width: 100%;
+    grid-gap: 10px;
+    margin-bottom: 20px;
+    border: solid 2px black
+    
+}
+.like{
+    grid-row: 1 / 1;
+    grid-column: 1 / 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+.likeCount{
+    grid-row: 2 / 2 ;
+    grid-column: 1 / 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.dislike{
+    grid-row: 3 / 3;
+    grid-column: 1 / 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.username{
+    grid-row:1 / 1;
+    grid-column: 2 / 2;
+    color: grey;
+    margin-top: 10px;
+}
+.locationName{
+    grid-row: 2 / 2;
+    grid-column: 2 / 2;
+}
+.locationDetails{
+    grid-row:3 / 5;
+    grid-column: 2 / 2;
+    margin-bottom: 10px;
+}
+.deletePost{
+    grid-row: 1 / 1;
+    grid-column: 2 / 2;
+    position: relative;
+    transform: translateX(92.5%);
+    margin-top: 10px;
+}
+.editPost{
+    grid-row: 1 / 1;
+    grid-column: 2 / 2;
+    position: relative;
+    transform: translateX(85.5%);
+    margin-top: 10px;
+    font-size: 15px;
+    font-weight: 500;
+}
+.deleteBtn{
+    border: none;
+    color: red;
+    background: transparent;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 15px;
+
+}
+.likeIcon:hover{
+    color: #00ABE4;
+    cursor: pointer;
+}
+.dislikeIcon:hover{
+    color: #00ABE4;
+    cursor: pointer;
+}
+.myPosts h1{
+    display: flex;
+    justify-content: center;
+    margin: 40px 0 40px 0;
+}
+.recentPosts h1{
+    display: flex;
+    justify-content: center;
+    margin: 40px 0 40px 0;
+}
+.createPostBtn{
+    height: 50px;
+    width: 120px;
+    border: solid black 2px;
+    background-color: #00ABE4;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-left: 10%;
+    margin-bottom: 50px;
+    transition: ease 0.5s box-shadow;
+}
+.createPostBtn:hover{
+    box-shadow: black 1px 1px 1px;
+}
+.createPostForm{
+    display: grid;
+    grid-template-rows: 80px 500px;
+    grid-template-columns: 10% 80%;
+    border: black solid 2px;  
+    margin: 0 5% 100px 5%;
+    grid-gap: 20px;
+    box-shadow: black 4px 4px 5px;
+}
+
+.formLabel{
+    grid-column: 1 / 3;
+    grid-row: 1 / 1;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-left: 5%;
+    margin-top: 20px;
+}
+.form{
+    grid-row: 2 / 3;
+    grid-column: 1 / 3;
+    display: grid;
+    grid-template-columns: 15% 80%;
+    grid-template-rows: 8% 60% 20%;
+    grid-gap: 20px;
+    margin-left: 10%;
+
+}
+.locationDetailsInput{
+    padding: 8px;
+    margin-bottom: 20px;
+    font-size: 15px;
+    border: black 2px solid;
+}
+.locationNameLabel, .locationDetailsLabel, .cityLabel{
+    font-weight: 500;
+    width: 100%;
+    height: 100%;
+    right: 0;
+    display: flex;
+    justify-content: right;
+
+}
+.locationNameInput{
+    padding: 0 5px;
+    margin-bottom: 20px;
+    height: 100%;
+    width: 40%;
+    font-size: 15px;
+    border: black 2px solid;
+}
+.submitBtn{
+    margin-bottom: 20px;
+    width: 800px;
+    margin-left: 100%;
+    margin-right: 10%;
+    background-color: #00ABE4;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.submitBtn:hover{
+    box-shadow: black 2px 2px 3px ;
+}
+.createPostFormWithCity{
+    display: grid;
+    grid-template-rows: 80px 500px;
+    grid-template-columns: 10% 80%;
+    border: black solid 2px;  
+    margin: 0 5% 100px 5%;
+    grid-gap: 20px;
+    box-shadow: black 4px 4px 5px;
+}
+.formWithCity{
+    grid-row: 2 / 4;
+    grid-column: 1 / 3;
+    display: grid;
+    grid-template-columns: 15% 80%;
+    grid-template-rows: 10% 10% 50% 15%;
+    grid-gap: 20px;
+    margin-left: 10%;
+}
+.cityInput{
+    width: 40%;
+    border: black solid 2px;
+}
+
+
+
+

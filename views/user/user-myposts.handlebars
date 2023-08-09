@@ -1,0 +1,28 @@
+<div class="createPost" style="display: flex;">
+    <a href="/user/posts/create" class="createPostBtn" style="display: flex; justify-content:center; align-items:center">Create Post</a>
+</div>
+<div class="posts">
+    <h1>My Posts</h1>
+    {{#if posts}}
+        {{#each posts}}
+
+            <div class="post">
+                <div class="item like"><span class="likeIcon material-symbols-outlined">thumb_up</span></div>
+                <div class="item likeCount">{{likeCount}}</div>
+                <div class="item dislike"><span class="dislikeIcon material-symbols-outlined">thumb_down</span></div>
+                <div class="item username">Created by {{userName}} </div><a href="/user/posts/edit/{{_id}}" class="editPost">Edit Post</a>
+                <div class="item locationName">{{locationName}}, {{city}}</div>
+                <div class="deletePost">
+                    <form action="/user/myposts/{{_id}}?_method=DELETE" method="post">
+                        <button type="submit" class="deleteBtn">Delete Post</button>
+                    </form>
+                </div>
+                <div class="item locationDetails">{{locationDetails}}</div>
+            </div>
+            
+        {{/each}}
+    {{else}}
+        <p style="margin-bottom: 404.5px;">No Posts to show</p>
+    {{/if}}
+</div>
+<script src="/js/create-post-btn.js"></script>

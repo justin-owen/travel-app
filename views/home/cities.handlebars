@@ -1,0 +1,13 @@
+<h1 id="cities-header">Cities</h1>
+
+<div class="cities">
+    <ul class="cities-list" style=";">
+        {{#if data}}
+        {{#each data}}
+        <li class="cities-name"><a href="/posts/{{name}}" class="cities-link">{{name}}</a></li>
+        {{/each}}
+        {{else}}
+        <li class="cities-name" style="margin-top: 10%; margin-bottom:291px">None found.</li>
+        {{/if}}
+    </ul>
+</div>

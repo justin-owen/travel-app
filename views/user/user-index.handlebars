@@ -1,0 +1,123 @@
+    <div class="greeting">
+        <h1>Welcome {{#if user}}{{user.firstName}}{{/if}}!</h1>
+        <p>This website is made for travelers who want to post about a location in a certain city or are trying to get ideas of places to visit!</p>
+        <p>Enjoy, and keep traveling!</p>
+
+    </div>
+    <div class="container">
+        <div class="carousel">
+            <div class="slider">
+                <section class="popular-regions" id="africa">
+                    <h1>Africa</h1>
+                    <button class="africaBtn">Select</button>
+                </section>
+                <section class="popular-regions" id="asia">
+                    <h1>Asia</h1>
+                    <button class="asiaBtn">Select</button>
+                </section>
+                <section class="popular-regions" id="ca">
+                    <h1>Central America</h1>
+                    <button class="caBtn">Select</button>
+                </section>
+                <section class="popular-regions" id="europe">
+                    <h1>Europe</h1>
+                    <button class="europeBtn">Select</button>
+                </section>
+                <section class="popular-regions" id="na">
+                    <h1>North America</h1>
+                    <button class="naBtn">Select</button>
+                </section>
+                <section class="popular-regions" id="oceania">
+                    <h1>Oceania</h1>
+                    <button class="oceaniaBtn">Select</button>
+                </section>
+                <section class="popular-regions" id="sa">
+                    <h1>South America</h1>
+                    <button class="saBtn">Select</button>
+                </section>
+                <section class="popular-regions" id="caribbean">
+                    <h1>The Caribbean</h1>
+                    <button class="caribbeanBtn">Select</button>
+                </section>
+            </div>
+            <div class="controls">
+                <span class="material-symbols-outlined arrow left">arrow_back_ios</span>
+                <span class="material-symbols-outlined arrow right">arrow_forward_ios</span>
+            </div>
+        </div>
+    </div>
+    <div class="myPosts">
+        <div class="posts">
+            <h1>My Posts</h1>
+            {{#if myposts}}
+                {{#each myposts}}
+
+                    <div class="post">
+                        <div class="item like"><span class="likeIcon material-symbols-outlined" onclick="like('{{_id}}', '{{city}}')">thumb_up</span></div>
+                        <div class="item likeCount" id="{{_id}}">{{likeCount}}</div>
+                        <div class="item dislike"><span class="dislikeIcon material-symbols-outlined" onclick="dislike('{{_id}}', '{{city}}')">thumb_down</span></div>
+                        <div class="item username">Created by {{userName}}</div>
+                        <div class="item locationName">{{locationName}}, {{city}}</div>
+                        <div class="item locationDetails">{{locationDetails}}</div>
+                    </div>
+                {{/each}}
+            {{else}}
+                <p style="margin-bottom: 100px; display: flex; width: 100%; justify-content: center">No Posts to show</p>
+            {{/if}}
+            
+        </div>
+    </div>
+    <div class="recentPosts">
+        <div class="posts">
+            <h1>Recent Posts</h1>
+            {{#if recentPosts}}
+                {{#each recentPosts}}
+
+                    <div class="post">
+                        <div class="item like"><span class="likeIcon material-symbols-outlined" onclick="likerecent('{{_id}}', '{{city}}')">thumb_up</span></div>
+                        <div class="item likeCount" id="{{_id}}recent">{{likeCount}}</div>
+                        <div class="item dislike"><span class="dislikeIcon material-symbols-outlined" onclick="dislikerecent('{{_id}}', '{{city}}')">thumb_down</span></div>
+                        <div class="item username">Created by {{userName}}</div>
+                        <div class="item locationName">{{locationName}}, {{city}}</div>
+                        <div class="item locationDetails">{{locationDetails}}</div>
+                    </div>
+                {{/each}}
+            {{else}}
+                <p style="margin-bottom: 100px; display: flex; width: 100%; justify-content: center">No Posts to show</p>
+            {{/if}}
+
+        </div>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script type="text/javascript">
+    
+
+    function like(id, city){
+        let likeCount = document.getElementById(`${id}`)
+        axios.put(`/user/posts/${id}/like`, {id, increment: 1, city}).then( function(response) {
+            const updatedPost = response.data
+            likeCount.textContent = updatedPost.likeCount
+        })
+    }
+    function dislike(id, city){
+        let likeCount = document.getElementById(`${id}`)
+        axios.put(`/user/posts/${id}/dislike`, {id, increment: -1, city}).then(function(response){
+            const updatedPost = response.data
+            likeCount.textContent = updatedPost.likeCount
+        })
+    }
+    function likerecent(id, city){
+        let likeCount = document.getElementById(`${id}recent`)
+        axios.put(`/user/posts/${id}/like`, {id, increment: 1, city}).then( function(response) {
+            const updatedPost = response.data
+            likeCount.textContent = updatedPost.likeCount
+        })
+    }
+    function dislikerecent(id, city){
+        let likeCount = document.getElementById(`${id}recent`)
+        axios.put(`/user/posts/${id}/dislike`, {id, increment: -1, city}).then(function(response){
+            const updatedPost = response.data
+            likeCount.textContent = updatedPost.likeCount
+        })
+    }
+</script>

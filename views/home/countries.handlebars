@@ -1,0 +1,9 @@
+<h1 id="countries-header">Countries</h1>
+
+<div class="countries">
+    <ul class="countries-list">
+        {{#each data}}
+        <li class="countries-name"><a href="/cities/{{name}}" class="countries-link">{{name}}</a></li>
+        {{/each}}
+    </ul>
+</div>
